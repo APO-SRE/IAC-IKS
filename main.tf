@@ -81,5 +81,28 @@ module "iks_cluster" {
   # Organization and Tags.
   organization = var.organization
   tags         = var.tags
+  
+   addons       = [
+    {
+    use_existing = true
+    createNew = false
+    addonPolicyName = "smm-tf"
+    #addonName            = "smm"
+    #description       = "SMM Policy"
+    #upgradeStrategy  = "AlwaysReinstall"
+    #installStrategy  = "InstallOnly"
+    releaseVersion = "1.7.4-cisco4-helm3"
+    #overrides = yamlencode({"demoApplication":{"enabled":true}})
+    },
+    # {
+    # createNew = true
+    # addonName            = "ccp-monitor"
+    # description       = "monitor Policy"
+    # # upgradeStrategy  = "AlwaysReinstall"
+    # # installStrategy  = "InstallOnly"
+    # releaseVersion = "0.2.61-helm3"
+    # # overrides = yamlencode({"demoApplication":{"enabled":true}})
+    # }
+  ]
+  
 }
-#change
